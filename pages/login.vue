@@ -1,5 +1,5 @@
 <template>
-  <v-app id="login" class="primary">
+<v-app id="login" class="primary">
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
@@ -12,9 +12,9 @@
                 </div>
                 <v-form>
                   <v-text-field append-icon="person" name="login" label="Login" type="text"
-                                v-model="model.username"></v-text-field>
+                                v-model="model.Username"></v-text-field>
                   <v-text-field append-icon="lock" name="password" label="Password" id="password" type="password"
-                                v-model="model.password"></v-text-field>
+                                v-model="model.Password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -36,7 +36,7 @@
       </v-container>
     </v-content>
   </v-app>
-</template>
+</template>|
 
 <script>
   export default {
@@ -44,18 +44,20 @@
     data: () => ({
       loading: false,
       model: {
-        username: 'admin@example.com',
-        password: 'password'
+        Username: 's.admin01@system.net',
+        Password: 'admin1.123456.'
       }
     }),
 
     methods: {
       async login() {
         try {
-          let response = await this.$auth.loginWith('local', { data: this.model })
-          console.log(response)
+           let response = await this.$auth.loginWith('local', { data: this.model })
+           console.log(response);
+           if(response.status = 200)
+             this.$router.push('/dashboard');
         } catch (err) {
-          console.log(err)
+           console.log(err)
         }
     },
      /*  login() {
@@ -64,7 +66,9 @@
           this.$router.push('/dashboard');
         }, 1000);
       } */
-    }
+    },
+
+
 
   };
 </script>
