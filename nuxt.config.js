@@ -64,6 +64,10 @@ module.exports = {
         '@nuxtjs/auth-next'
     ],
 
+    axios: {
+        baseURL: 'http://127.0.0.1:9090/dev01/rifters-v1/sggs/florida/miami/api', // Used as fallback if no runtime config is provided
+    },
+
     /*
      ** Build configuration
      */
@@ -97,7 +101,7 @@ module.exports = {
                     // autoFetch: true
                 },
                 endpoints: {
-                    login: { url: '/api/auth/login', method: 'post' },
+                    login: { url: '/v1/system/security/authentication/login', method: 'post' },
                     logout: { url: '/api/auth/logout', method: 'post' },
                     user: { url: '/api/auth/user', method: 'get' }
                 }
